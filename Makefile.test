@@ -1,0 +1,12 @@
+.PHONY: all
+all: /etc/xrootd/config.d/60-osg-multiuser.cfg /usr/lib/systemd/system/xrootd-privileged@.service /usr/lib/systemd/system/cmsd-privileged@.service
+
+/etc/xrootd/config.d/60-osg-multiuser.cfg: configs/60-osg-multiuser.cfg
+	install -m 0644 $^ $@
+
+/usr/lib/systemd/system/xrootd-privileged@.service: configs/xrootd-privileged@.service
+	install -m 0644 $^ $@
+
+/usr/lib/systemd/system/cmsd-privileged@.service: configs/cmsd-privileged@.service
+	install -m 0644 $^ $@
+
